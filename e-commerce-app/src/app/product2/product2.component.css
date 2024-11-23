@@ -1,0 +1,36 @@
+#productCard {
+  /* max-height: 150px; */
+}
+
+.img-container {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-footer {
+  background-color: #006699;
+  color: #fff;
+}
+
+.img-thumbnail {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure proper proportions */
+  border-radius: 5%;
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.img-thumbnail:hover {
+  transform: scale(10); /* Enlarge the image on hover */
+  z-index: 10; /* Bring the image to the foreground */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+/* Disable hover effects on mobile devices */
+@media (max-width: 768px) {
+  .img-thumbnail:hover {
+    transform: none; /* Disable enlargement */
+    box-shadow: none; /* Disable shadow */
+  }
+}

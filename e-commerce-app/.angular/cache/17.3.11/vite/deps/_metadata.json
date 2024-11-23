@@ -1,34 +1,61 @@
 {
-  "hash": "256f7b31",
-  "configHash": "2455bb43",
+  "hash": "29a1b1ce",
+  "configHash": "0ecd4b70",
   "lockfileHash": "1d4958cb",
-  "browserHash": "93f996d9",
+  "browserHash": "41487b52",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "51a8bb34",
+      "fileHash": "96bdcbe7",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "a90567c4",
+      "fileHash": "45fe1f0d",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "a5c65cff",
+      "fileHash": "1c25d790",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "2373e2a5",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "7ec6ff02",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "c6e6946d",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-L6VIMCJS": {
-      "file": "chunk-L6VIMCJS.js"
+    "chunk-WLVJM3WU": {
+      "file": "chunk-WLVJM3WU.js"
     },
-    "chunk-5FUJWLSI": {
-      "file": "chunk-5FUJWLSI.js"
+    "chunk-4OPAUEXN": {
+      "file": "chunk-4OPAUEXN.js"
+    },
+    "chunk-KXMSNL5B": {
+      "file": "chunk-KXMSNL5B.js"
+    },
+    "chunk-YFXVGDDX": {
+      "file": "chunk-YFXVGDDX.js"
+    },
+    "chunk-W7WAD56I": {
+      "file": "chunk-W7WAD56I.js"
     }
   }
 }

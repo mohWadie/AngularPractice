@@ -1,0 +1,15 @@
+<div class="card shadow-lg" id="productCard">
+    <div class="card-header bg-secondary text-white text-center">
+        <h5>{{product().title}}</h5>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-center align-content-center">
+            <img [src]="product().image" class="img-thumbnail img-container">
+        </div>
+        <h6 class="p-1">{{product().description}}</h6>
+        <!-- <h6>{{product().category}}</h6> -->
+    </div>
+    <div class="card-footer card-footer">
+        <h4>{{product().price}}$</h4>
+    </div>
+</div>

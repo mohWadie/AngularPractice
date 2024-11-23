@@ -1,0 +1,57 @@
+<div class="container d-flex justify-content-center align-content-center p-5">
+    <div class="card shadow-lg" style="width: 400px;">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>Signin</h4>
+        </div>
+        <div class="card-body">
+            @if(error()){
+            <div class="alert alert-danger" role="alert">{{error()}}</div>
+            }
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        formControlName="email" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password"
+                        id="password"
+                        formControlName="password"
+                        placeholder="Enter your password" />
+                </div>
+
+                @if(isLoading()){
+                <app-loading-spinner />
+                }
+
+                <button type="submit"
+                    class="btn btn-primary w-100">Signin</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- @if(error()){
+<p>{{error()}}</p>
+}
+
+<p>login</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" formControlName="email" />
+    <br />
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password"
+        formControlName="password" /> <br />
+    @if(isLoading()){
+    <app-loading-spinner />
+    <br />
+    }
+    <button type="submit">Signin</button>
+
+</form> -->
