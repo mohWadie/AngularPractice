@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightArround.Server", "FlightArround.Server\FlightArround.Server.csproj", "{2A0C9CE6-55D7-42AE-9877-6F76ECEDFE86}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "flightarround.client", "flightarround.client\flightarround.client.esproj", "{C0C08C49-D554-4686-B739-552FD3C68E36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A0C9CE6-55D7-42AE-9877-6F76ECEDFE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0C9CE6-55D7-42AE-9877-6F76ECEDFE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0C9CE6-55D7-42AE-9877-6F76ECEDFE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0C9CE6-55D7-42AE-9877-6F76ECEDFE86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C08C49-D554-4686-B739-552FD3C68E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C08C49-D554-4686-B739-552FD3C68E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C08C49-D554-4686-B739-552FD3C68E36}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C0C08C49-D554-4686-B739-552FD3C68E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C08C49-D554-4686-B739-552FD3C68E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C08C49-D554-4686-B739-552FD3C68E36}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {410F4129-304B-46B7-9C25-93DDFE6C79C0}
+	EndGlobalSection
+EndGlobal
