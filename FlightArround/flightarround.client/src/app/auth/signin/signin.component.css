@@ -1,0 +1,11 @@
+.card {
+  width: 400px;
+  /* height: 400px; */
+  border-radius: 20px;
+}
+
+.card-footer {
+  background-color: white;
+  height: 60px;
+  border-radius: 10px;
+}

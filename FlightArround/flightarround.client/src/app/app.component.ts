@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 interface WeatherForecast {
   date: string;
@@ -10,8 +13,10 @@ interface WeatherForecast {
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [RouterOutlet, NavBarComponent],
 })
 export class AppComponent implements OnInit {
   public forecasts: WeatherForecast[] = [];
@@ -19,7 +24,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getForecasts();
+    // this.getForecasts();
   }
 
   getForecasts() {

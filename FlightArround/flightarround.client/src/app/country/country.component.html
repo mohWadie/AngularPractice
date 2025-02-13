@@ -1,0 +1,27 @@
+@if(error()){
+<app-error-component [msg]="error()" />
+}
+
+@if(msg()){
+<app-success-component [msg]="msg()" />
+}
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <button type="button" (click)="addCity()"> Add City</button>
+    <br />
+    @if(countryNameIsInvalid()){
+    <div class="text-bg-danger">Country name is required</div>
+    }
+    <label for="countryName" class="form-label">Country Name</label>
+    <input type="text" name="countryName" id="countryName"
+        required="Please insert country name"
+        placeholder="Country Name"
+        class="form-control"
+        formControlName="countryName">
+
+    @for (city of getCities; track city; let idx = $index) {
+    <app-city [id]="idx" [cityControl]="city" />
+    }
+
+    <button type="submit">Submit</button>
+</form>

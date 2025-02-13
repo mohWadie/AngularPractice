@@ -1,0 +1,45 @@
+@if(error()){
+<app-error-component [msg]="error()" />
+}
+
+<div
+    class="container-fluid d-flex w-100 p-2 justify-content-center">
+    <div class="card shadow-lg shadow-sm">
+        <div class="card-header text-sm-center">
+            <h4>Signin</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()"
+                class="form-control">
+                <div class="container">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" name="email" id="email"
+                        required="Please insert username or email"
+                        placeholder="User name or email"
+                        class="form-control"
+                        formControlName="email">
+                </div>
+                <br />
+                <div class="container">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password"
+                        required="Please insert password"
+                        placeholder="Password"
+                        class="form-control"
+                        formControlName="password">
+                </div>
+                <br />
+                <div class="container-fluid">
+                    <button type="submit"
+                        class="btn btn-primary w-100">Signin</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+
+            <a href="/signup">Don't have an
+                account?</a>
+
+        </div>
+    </div>
+</div>

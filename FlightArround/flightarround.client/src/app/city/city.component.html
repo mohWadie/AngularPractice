@@ -1,0 +1,11 @@
+<div class="container">
+    @if(controlIsInvalid()){
+    <div class="text-bg-danger">City name is required</div>
+    }
+    <label for="{{controlName()}}" class="form-label">City Name</label>
+    <input type="text" name="{{controlName()}}" id="{{controlName()}}"
+        required="Please insert city name"
+        placeholder="City name"
+        class="form-control"
+        [formControl]="cityControl()">
+</div>
