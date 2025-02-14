@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { User } from './user.model';
 import { StorageServiceService } from '../shared/storage-service.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class AuthService {
   private httpClient = inject(HttpClient);
   private loggedUser = signal<User | null>(null);
   private storageService = inject(StorageServiceService);
+  private router = inject(Router);
 
   Signin(email: string, password: string) {
     return this.httpClient.post<User>('/auth/Signin', {
@@ -42,5 +44,13 @@ export class AuthService {
       const expiry = JSON.parse(atob(token.split('.')[1])).exp;
       return Math.floor(new Date().getTime() / 1000) >= expiry;
     } else return true;
+  }
+
+  HandleAutoSignin() {
+    if (this.isTokenExpired()) {
+      this.router.navigate(['/signin'], {
+        replaceUrl: true,
+      });
+    }
   }
 }

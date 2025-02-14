@@ -66,6 +66,12 @@ export class CountryComponent {
         };
       });
 
+      if (c.length === 0) {
+        this.error.set('Citeis are required. Please add citeis');
+        this.msg.set('');
+        return;
+      }
+
       var ctry: Country = {
         id: '00000000-0000-0000-0000-000000000000',
         name: this.form.controls.countryName.value!,
@@ -81,6 +87,9 @@ export class CountryComponent {
           if (err.status === 409) {
             this.error.set('Country already exists');
             this.msg.set('');
+          } else {
+            this.error.set('Error occurred. Please try again later');
+            this.msg.set('');
           }
         },
       });
@@ -92,5 +101,9 @@ export class CountryComponent {
       this.form.controls.countryName.markAsTouched();
       this.form.controls.cities.markAllAsTouched();
     }
+  }
+
+  removeCity(idx: number) {
+    this.form.controls.cities.removeAt(idx);
   }
 }

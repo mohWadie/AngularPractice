@@ -7,9 +7,11 @@ namespace FlightArround.Server.Models
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public City From { get; set; }
+        public Guid FromId { get; set; }
+        public virtual City From { get; set; }
         [Required]
-        public City To { get; set; }
+        public Guid ToId { get; set; }
+        public virtual City To { get; set; }
         [Required]
         public DateTime TravlDate { get; set; }
         public DateTime TravlTime { get; set; }

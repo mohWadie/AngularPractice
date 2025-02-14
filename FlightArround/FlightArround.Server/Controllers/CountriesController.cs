@@ -44,8 +44,14 @@ namespace FlightArround.Server.Controllers
         {
             try 
             { 
-            var res = await _context.Countries.ToListAsync();
-            return Ok(res);
+                var res = await _context.Countries.ToListAsync();
+                ICollection<CountryDTO> countries = [];
+
+                foreach (Country country in res) 
+                {
+                    countries.Add(country.GetDto());
+                }
+                return Ok(countries.AsEnumerable());
             }
             catch (Exception ex)
             {
@@ -69,11 +75,10 @@ namespace FlightArround.Server.Controllers
                     Id = Guid.NewGuid(),
                     Name = country.Name
                 };
-                var cities = country.Cities.Select(c => new City { Id = Guid.NewGuid(), Name = c.Name });
+                var cities = country.Cities.Select(c => new City { Id = Guid.NewGuid(), countryId = ctry.Id, Name = c.Name }).ToList();
 
-                ctry.Cities = cities.ToList();
-
-                country.Id = Guid.NewGuid();
+                ctry.Cities = cities;
+                
                 await _context.Countries.AddAsync(ctry);
                 await _context.SaveChangesAsync();
                 return Ok();

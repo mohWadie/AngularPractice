@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { CountryComponent } from './country/country.component';
+import { CountriesListComponent } from './country/countries-list/countries-list.component';
 export const routes: Routes = [
   {
     path: 'signup',
@@ -13,6 +14,10 @@ export const routes: Routes = [
   },
   {
     path: 'countries',
+    component: CountriesListComponent,
+  },
+  {
+    path: 'countries/new',
     component: CountryComponent,
   },
   // {

@@ -12,7 +12,7 @@ namespace FlightArround.Server.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            base.OnConfiguring(optionsBuilder.EnableSensitiveDataLogging(true));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,11 +35,11 @@ namespace FlightArround.Server.Data
                 .HasIndex(c => c.Email)
                 .IsUnique();
 
-            modelBuilder.Entity<Country>()
-                .HasMany(e => e.Cities)
-                .WithOne(e => e.Country)
-                .HasForeignKey(e => e.Id)
-                .IsRequired();
+            //modelBuilder.Entity<Country>()
+            //    .HasMany(e => e.Cities)
+            //    .WithOne(e => e.Country)
+            //    .HasForeignKey(e => e.Id)
+            //    .IsRequired();
         }
 
         public DbSet<Customers> Customers { get; set; }

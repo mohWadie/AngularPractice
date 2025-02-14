@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Country } from './country.model';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +11,9 @@ export class CountryService {
 
   private httpClient = inject(HttpClient);
   private authService = inject(AuthService);
-  private router = inject(Router);
 
   CreateCountry(country: Country) {
-    if (this.authService.isTokenExpired()) {
-      this.router.navigate(['/signin'], {
-        replaceUrl: true,
-      });
-    }
+    this.authService.HandleAutoSignin();
 
     const header = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
@@ -33,5 +27,17 @@ export class CountryService {
     });
 
     return request;
+  }
+
+  GetCountries() {
+    this.authService.HandleAutoSignin();
+
+    const header = new HttpHeaders({
+      Authorization: 'Bearer ' + this.authService.getUserInfo()?.token!,
+    });
+
+    return this.httpClient.get<Country[]>('/Countries/AllCountries', {
+      headers: header,
+    });
   }
 }

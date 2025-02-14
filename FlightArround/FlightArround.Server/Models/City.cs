@@ -9,6 +9,7 @@ namespace FlightArround.Server.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public Country Country { get; set; } = null!;
+        public Guid countryId { get; set; }
+        public virtual Country Country { get; set; } = null!;
     }
 }

@@ -9,6 +9,20 @@ namespace FlightArround.Server.Models
         [Required]
         public string Name { get; set; }
         public bool MarkAsDeleted { get; set; }
-        public ICollection<City> Cities { get; set; } = new List<City>();
+        public virtual ICollection<City> Cities { get; set; } = new List<City>();
+
+        public CountryDTO GetDto()
+        {
+            return new CountryDTO
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Cities = this.Cities.Select(static x => new CityDTO
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                }).ToList()
+            };
+        }
     }
 }

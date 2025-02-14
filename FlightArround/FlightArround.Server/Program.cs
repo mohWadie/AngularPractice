@@ -12,7 +12,9 @@ if (connectionString == null)
     throw new Exception("There is no database server");
 
 // Add services to the container.
-builder.Services.AddDbContext<FlightArroundContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<FlightArroundContext>(options => 
+                                                        options.UseNpgsql(connectionString)
+                                                               .UseLazyLoadingProxies());
 builder.Services.AddSingleton<TokenProvider>();
 builder.Services.AddAuthentication(options =>
 {

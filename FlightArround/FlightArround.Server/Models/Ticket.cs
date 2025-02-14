@@ -7,9 +7,11 @@ namespace FlightArround.Server.Models
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public Travel Travel { get; set; }
+        public Guid TravelId { get; set; }
+        public virtual Travel Travel { get; set; }
         [Required]
-        public Customers Customer { get; set; }
+        public Guid CustomerId { get; set; }
+        public virtual Customers Customer { get; set; }
         public TicketType Type { get; set; } = TicketType.Economy;
         public bool Approved { get; set; } = false;
         public double ToPay { get; set; }

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlightArround.Server.Migrations
 {
     [DbContext(typeof(FlightArroundContext))]
-    [Migration("20250213170153_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250214182259_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,6 +21,9 @@ namespace FlightArround.Server.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -28,13 +31,19 @@ namespace FlightArround.Server.Migrations
             modelBuilder.Entity("FlightArround.Server.Models.City", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid>("countryId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("countryId");
 
                     b.ToTable("Cities");
                 });
@@ -198,13 +207,11 @@ namespace FlightArround.Server.Migrations
 
             modelBuilder.Entity("FlightArround.Server.Models.City", b =>
                 {
-                    b.HasOne("FlightArround.Server.Models.Country", "Country")
+                    b.HasOne("FlightArround.Server.Models.Country", null)
                         .WithMany("Cities")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("countryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("FlightArround.Server.Models.Ticket", b =>
