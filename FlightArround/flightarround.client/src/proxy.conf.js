@@ -13,6 +13,7 @@ const PROXY_CONFIG = [
       "/auth/Signin",
       "/Countries/Create",
       "/Countries/AllCountries",
+      "/Travels",
     ],
     target,
     secure: false,

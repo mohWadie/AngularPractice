@@ -13,8 +13,8 @@ namespace FlightArround.Server.Models
         public Guid ToId { get; set; }
         public virtual City To { get; set; }
         [Required]
-        public DateTime TravlDate { get; set; }
-        public DateTime TravlTime { get; set; }
+        public DateTime TravelDate { get; set; }
+        public DateTime TravelTime { get; set; }
         public DateTime ArriveTime { get; set; }
         public int AvailableSeats { get; set; }
         [Required]

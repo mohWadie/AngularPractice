@@ -1,0 +1,17 @@
+@for(travel of travels(); track travel.id){
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h3>From: {{travel.fromCountry}} - {{travel.fromCity}} </h3>
+            <h3>To: {{travel.toCountry}} - {{travel.toCity}} </h3>
+        </div>
+        <div class="card-body">
+            <h4>Date: {{travel.travelDate | date:'d/M/yyyy' }}</h4>
+            <h4>Time: {{travel.travelTime | date:'shortTime'}}</h4>
+            <h4>Arrive At: {{travel.arriveTime | date:'shortTime'}}</h4>
+            <h4>Price: {{travel.price | currency}}</h4>
+        </div>
+    </div>
+</div>
+<br />
+}

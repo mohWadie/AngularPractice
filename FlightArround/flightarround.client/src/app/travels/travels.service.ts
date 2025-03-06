@@ -1,38 +1,33 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
+import { Travel } from './travel.model';
 import { AuthService } from '../auth/auth.service';
-import { Country } from './country.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CountryService {
+export class TravelsService {
   constructor() {}
 
   private httpClient = inject(HttpClient);
   private authService = inject(AuthService);
 
-  CreateCountry(country: Country) {
+  AddTravel(travel: Travel) {
     this.authService.HandleAutoSignin();
-
     const header = this.authService.getRequestHeader();
 
-    const ctry = JSON.stringify(country);
-
-    const request = this.httpClient.post<Country>('/Countries/Create', ctry, {
+    const trav = JSON.stringify(travel);
+    const request = this.httpClient.post('/Travels', trav, {
       headers: header,
     });
 
     return request;
   }
 
-  GetCountries() {
+  GetTravels() {
     this.authService.HandleAutoSignin();
 
-    const header = this.authService.getRequestHeader();
-
-    return this.httpClient.get<Country[]>('/Countries/AllCountries', {
-      headers: header,
-    });
+    const request = this.httpClient.get<Travel[]>('/Travels');
+    return request;
   }
 }

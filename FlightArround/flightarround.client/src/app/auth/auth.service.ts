@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { User } from './user.model';
 import { StorageServiceService } from '../shared/storage-service.service';
@@ -52,5 +52,12 @@ export class AuthService {
         replaceUrl: true,
       });
     }
+  }
+
+  getRequestHeader() {
+    return new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      Authorization: 'Bearer ' + this.getUserInfo()?.token!,
+    });
   }
 }

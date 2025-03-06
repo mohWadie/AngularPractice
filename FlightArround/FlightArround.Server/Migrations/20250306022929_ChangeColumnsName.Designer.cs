@@ -3,6 +3,7 @@ using System;
 using FlightArround.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlightArround.Server.Migrations
 {
     [DbContext(typeof(FlightArroundContext))]
-    partial class FlightArroundContextModelSnapshot : ModelSnapshot
+    [Migration("20250306022929_ChangeColumnsName")]
+    partial class ChangeColumnsName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

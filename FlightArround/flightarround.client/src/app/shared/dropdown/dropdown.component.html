@@ -1,0 +1,7 @@
+<label for="{{labelName()}}">Choose a {{labelName()}}:</label>
+<select name="{{labelName()}}" id="{{labelName()}}"
+    (change)="onOptionChange($event)" formControlName="optionControl">
+    @for (option of options(); track option) {
+    <option [value]="option">{{option.name}}</option>
+    }
+</select>

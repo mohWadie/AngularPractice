@@ -1,0 +1,104 @@
+@if(error()){
+<app-error-component [msg]="error()" />
+}
+
+@if(msg()){
+<app-success-component [msg]="msg()" />
+}
+
+<form [formGroup]="form()">
+    @if(getCountries().length > 0){
+    <div>
+        @if(form().controls['fromCity'].invalid &&
+        form().controls['price'].touched){
+        <div class="text-danger">
+            City is required.
+        </div>
+        }
+        <label for="fromCity">From City:</label>
+        <select name="fromCity" id="fromCity" formControlName="fromCity">
+            @for (option of getCountries(); track option) {
+            <option [value]="option.key">{{option.value}}</option>
+            }
+        </select>
+    </div>
+    <div>
+        @if(form().controls['toCity'].invalid &&
+        form().controls['toCity'].touched){
+        <div class="text-danger">
+            City is required.
+        </div>
+        }
+        <label for="toCity">To City:</label>
+        <select name="toCity" id="toCity" formControlName="toCity">
+            @for (option of getCountries(); track option) {
+            <option [value]="option.key">{{option.value}}</option>
+            }
+        </select>
+    </div>
+    }
+    @else {
+    <p>There is no cities defined</p>
+    }
+
+    <div>
+        @if(form().controls['travelDate'].invalid &&
+        form().controls['travelDate'].touched){
+        <div class="text-danger">
+            Travel Date is required.
+        </div>
+        }
+        <label for="travelDate">Travel Date:</label>
+        <input type="date" name="travelDate" id="travelDate"
+            formControlName="travelDate" />
+    </div>
+
+    <div>
+        @if(form().controls['travelTime'].invalid &&
+        form().controls['travelTime'].touched){
+        <div class="text-danger">
+            Travel Time is required.
+        </div>
+        }
+        <label for="travelTime">Travel Time:</label>
+        <input type="time" name="travelTime" id="travelTime"
+            formControlName="travelTime" />
+    </div>
+
+    <div>
+        @if(form().controls['arriveTime'].invalid &&
+        form().controls['arriveTime'].touched){
+        <div class="text-danger">
+            Arrive Time is required.
+        </div>
+        }
+        <label for="arriveTime">Arrive Time:</label>
+        <input type="time" name="arriveTime" id="arriveTime"
+            formControlName="arriveTime" />
+    </div>
+
+    <div>
+        @if(form().controls['availableSeats'].invalid &&
+        form().controls['availableSeats'].touched){
+        <div class="text-danger">
+            Available Seats is required.
+        </div>
+        }
+        <label for="availableSeats">Available Seats:</label>
+        <input type="number" name="availableSeats" id="availableSeats"
+            formControlName="availableSeats" />
+    </div>
+
+    <div>
+        @if(form().controls['price'].invalid &&
+        form().controls['price'].touched){
+        <div class="text-danger">
+            Price is required.
+        </div>
+        }
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price"
+            formControlName="price" />
+    </div>
+    <button type="button" (click)="formSubmit()">Submit</button>
+</form>
