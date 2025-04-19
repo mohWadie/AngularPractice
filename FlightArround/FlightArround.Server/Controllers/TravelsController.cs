@@ -30,7 +30,7 @@ namespace FlightArround.Server.Controllers
                 var res = await _context.Travels
                     .Include(t => t.From).ThenInclude(t => t.Country)
                     .Include(t => t.To).ThenInclude(t => t.Country)
-                    .Where(t => t.TravelDate >= today)
+                    //.Where(t => t.TravelDate >= today)
                     .Select(
                         t => new TravelDTO
                         {

@@ -20,10 +20,25 @@ export class SignupComponent {
 
   error = signal('');
   form = new FormGroup({
+    userName: new FormControl('', {
+      validators: [Validators.required],
+    }),
     email: new FormControl('', {
       validators: [Validators.required],
     }),
     password: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    firstName: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    lastName: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    passportNo: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    DOB: new FormControl('', {
       validators: [Validators.required],
     }),
   });
